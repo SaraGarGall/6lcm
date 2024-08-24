@@ -1,0 +1,14 @@
+{
+  "name": "6lcm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "private": true,
+  "dependencies": {
+    "inquirer": "^10.1.8"
+  }
+}
