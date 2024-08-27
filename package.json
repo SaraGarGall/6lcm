@@ -8,6 +8,7 @@
   },
   "author": "",
   "private": true,
+  "type": "module",
   "dependencies": {
     "inquirer": "^10.1.8"
   }

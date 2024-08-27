@@ -1,4 +1,4 @@
-//import nameOfTheFunction from /.utility//
+import { lcm } from './utility.js';
 import inquirer from 'inquirer';
 
 let firstNumber = await inquirer.prompt([
@@ -17,3 +17,14 @@ let secondNumber = await inquirer.prompt([
     message: 'Enter the second number now: '
   }
 ]);
+
+const result = lcm(firstNumber.number, secondNumber.number);
+
+console.log(
+  'the LCM of',
+  firstNumber.number,
+  'and',
+  secondNumber.number,
+  'is:',
+  result
+);

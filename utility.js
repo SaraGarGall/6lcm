@@ -34,12 +34,14 @@ export function integerFactorization(n) {
 //De aqui para arriba es igual que al GCD, pero en adelante cambia;
 
 // Comunes al mayor exponente y los no comunes, luego se multiplican todos.
-export function lmc(firstNumber, secondNumber) {
+export function lcm(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
+  console.log('arrayOne is:', arrayOne);
   let arrayTwo = integerFactorization(secondNumber);
+  console.log('arrayTwo is:', arrayTwo);
   let arrayOfCommons = [];
-  let arrayFinal = arrayOne.concat(arrayTwo, arrayOfCommons);
-  let lmcResult = 1;
+  let arrayFinal = arrayOfCommons.concat(arrayTwo);
+  let lcmResult = 1;
 
   for (let i = 0; i < arrayOne.length; i++) {
     let arrayOneEl = arrayOne[i];
@@ -50,6 +52,8 @@ export function lmc(firstNumber, secondNumber) {
       if (arrayOneEl == arrayTwoEl) {
         arrayOfCommons.push(arrayTwoEl);
         arrayTwo.shift();
+        arrayOne.shift();
+        i--;
         break;
       } else {
         continue;
@@ -57,9 +61,26 @@ export function lmc(firstNumber, secondNumber) {
     }
   }
 
-  for (let i = 0; i < arrayFinal.length; i++) {
-    lmcResult = lmcResult * arrayFinal[i];
+  if (arrayOne.length > 0 && arrayTwo.length) {
+    arrayFinal = arrayOfCommons.concat(arrayOne, arrayTwo);
+  } else if (arrayOne.length > 0) {
+    arrayFinal = arrayOfCommons.concat(arrayOne);
+  } else {
+    arrayFinal = arrayOfCommons.concat(arrayTwo);
   }
 
-  return lmcResult;
+  console.log("arrayOfCommons is:", arrayOfCommons);
+  console.log('arrayOne is:', arrayOne);
+  console.log('arrayTwo is:', arrayTwo);
+  console.log('arrayFinal is:', arrayFinal);
+
+
+  for (let i = 0; i < arrayFinal.length; i++) {
+    lcmResult = lcmResult * arrayFinal[i];
+  }
+
+  return lcmResult;
 }
+
+
+//El programa no peta si se le introduce valores negativos
