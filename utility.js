@@ -31,13 +31,14 @@ export function integerFactorization(n) {
   return arrayOfDivisor;
 }
 
-//De aqui para arriba es igual que al GC, pero en adelante cambia;
+//De aqui para arriba es igual que al GCD, pero en adelante cambia;
 
 // Comunes al mayor exponente y los no comunes, luego se multiplican todos.
-/*export function lmc(firstNumber, secondNumber) {
+export function lmc(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
   let arrayTwo = integerFactorization(secondNumber);
   let arrayOfCommons = [];
+  let arrayFinal = arrayOne.concat(arrayTwo, arrayOfCommons);
   let lmcResult = 1;
 
   for (let i = 0; i < arrayOne.length; i++) {
@@ -48,7 +49,7 @@ export function integerFactorization(n) {
 
       if (arrayOneEl == arrayTwoEl) {
         arrayOfCommons.push(arrayTwoEl);
-        arrayTwo.shift(); 
+        arrayTwo.shift();
         break;
       } else {
         continue;
@@ -56,10 +57,9 @@ export function integerFactorization(n) {
     }
   }
 
-  for (let i = 0; i < arrayOfCommons.length; i++) {
-    gcdResult = gcdResult * arrayOfCommons[i];
+  for (let i = 0; i < arrayFinal.length; i++) {
+    lmcResult = lmcResult * arrayFinal[i];
   }
 
   return lmcResult;
 }
-*/
