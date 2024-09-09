@@ -34,6 +34,7 @@ export function integerFactorization(n) {
 //De aqui para arriba es igual que al GCD, pero en adelante cambia;
 
 // Comunes al mayor exponente y los no comunes, luego se multiplican todos.
+// Da el sresultado erroneo. Tengo que averiguar el por que.
 export function lcm(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
   console.log('arrayOne is:', arrayOne);
