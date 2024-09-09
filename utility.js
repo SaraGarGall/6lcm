@@ -82,7 +82,3 @@ export function lcm(firstNumber, secondNumber) {
 
   return lcmResult;
 }
-
-
-//El programa no peta si se le introduce valores negativos
-//mirar si pasar parseInt en Main como filtro
