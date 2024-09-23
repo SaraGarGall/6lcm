@@ -42,7 +42,7 @@ export function lcm(firstNumber, secondNumber) {
   let arrayTwo = integerFactorization(secondNumber);
   console.log('arrayTwo is:', arrayTwo);
   let arrayOfCommons = [];
-  let arrayFinal = arrayOfCommons.concat(arrayTwo);
+  let arrayFinal = [];
   let lcmResult = 1;
 
   for (let i = 0; i < arrayOne.length; i++) {
@@ -52,20 +52,19 @@ export function lcm(firstNumber, secondNumber) {
       let arrayTwoEl = arrayTwo[j];
 
       if (arrayOneEl == arrayTwoEl) {
-        arrayOfCommons.push(arrayTwoEl);
-        arrayOne.shift();
-        arrayTwo.shift();
+        
+        console.log('arrayOfCommons is same:', arrayOfCommons);
+
         break;
       } else {
-        arrayOfCommons.push(arrayTwoEl);
-        arrayTwo.shift();
-        j--;
+        console.log('arrayOfCommons if different:', arrayOfCommons);
+
         continue;
       }
     }
   }
 
-  if (arrayOne.length > 0 && arrayTwo.length) {
+  if (arrayOne.length > 0 && arrayTwo.length > 0) {
     arrayFinal = arrayOfCommons.concat(arrayOne, arrayTwo);
   } else if (arrayOne.length > 0) {
     arrayFinal = arrayOfCommons.concat(arrayOne);
@@ -73,11 +72,10 @@ export function lcm(firstNumber, secondNumber) {
     arrayFinal = arrayOfCommons.concat(arrayTwo);
   }
 
-  console.log("arrayOfCommons is:", arrayOfCommons);
+  console.log('arrayOfCommons is:', arrayOfCommons);
   console.log('arrayOne is:', arrayOne);
   console.log('arrayTwo is:', arrayTwo);
   console.log('arrayFinal is:', arrayFinal);
-
 
   for (let i = 0; i < arrayFinal.length; i++) {
     lcmResult = lcmResult * arrayFinal[i];
