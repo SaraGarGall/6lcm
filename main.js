@@ -28,8 +28,6 @@ let secondNumber = await inquirer.prompt([
   }
 ]);
 
-//Meter una validacion en la que si el numero es menor o igual que 0 entonces de un error
-
 const result = lcm(firstNumber.number, secondNumber.number);
 
 console.log(

@@ -34,8 +34,8 @@ export function integerFactorization(n) {
 //De aqui para arriba es igual que al GCD, pero en adelante cambia;
 
 // Comunes al mayor exponente y los no comunes, luego se multiplican todos.
-// Da el sresultado erroneo. Tengo que averiguar el por que. Probar con los numeros 3456 y 7890.
-//Esta quitando un 2 de mas de la 1a array y esta anadiendo un 3 extra en el array final.
+// Da el sresultado erroneo. Tengo que asegurarme de que se elimina el ultimo arrayOneEl
+//cuando se hace for loop por el.
 export function lcm(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
   console.log('arrayOne is:', arrayOne);
@@ -47,7 +47,6 @@ export function lcm(firstNumber, secondNumber) {
 
   for (let i = 0; i < arrayOne.length; i++) {
     let arrayOneEl = arrayOne[i];
-    console.log("when arrayOneEl:", arrayOneEl);
 
     for (let j = 0; j < arrayTwo.length; j++) {
       let arrayTwoEl = arrayTwo[j];
@@ -63,7 +62,6 @@ export function lcm(firstNumber, secondNumber) {
         j--;
         continue;
       }
-      
     }
   }
 
