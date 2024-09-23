@@ -47,20 +47,23 @@ export function lcm(firstNumber, secondNumber) {
 
   for (let i = 0; i < arrayOne.length; i++) {
     let arrayOneEl = arrayOne[i];
+    console.log("when arrayOneEl:", arrayOneEl);
 
     for (let j = 0; j < arrayTwo.length; j++) {
       let arrayTwoEl = arrayTwo[j];
 
       if (arrayOneEl == arrayTwoEl) {
         arrayOfCommons.push(arrayTwoEl);
-        arrayOne.splice(arrayOneEl,1);//CAMBIO A PROBAR
-        arrayTwo.shift();//Este esta mal- CAMBIO A PROBAR
-        //arrayOne.shift();
-       // i--; //CAMBIO AQUI TB
+        arrayOne.shift();
+        arrayTwo.shift();
         break;
       } else {
+        arrayOfCommons.push(arrayTwoEl);
+        arrayTwo.shift();
+        j--;
         continue;
       }
+      
     }
   }
 
