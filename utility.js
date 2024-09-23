@@ -31,15 +31,9 @@ export function integerFactorization(n) {
   return arrayOfDivisor;
 }
 
-//De aqui para arriba es igual que al GCD, pero en adelante cambia;
-
-// Comunes al mayor exponente y los no comunes, luego se multiplican todos.
-// Cambiar contenido del if statement dentro de la funcion lcm
 export function lcm(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
-  console.log('arrayOne is:', arrayOne);
   let arrayTwo = integerFactorization(secondNumber);
-  console.log('arrayTwo is:', arrayTwo);
   let arrayOfCommons = [];
   let arrayFinal = [];
   let lcmResult = 1;
@@ -52,14 +46,12 @@ export function lcm(firstNumber, secondNumber) {
 
       if (arrayOneEl == arrayTwoEl) {
         arrayOfCommons.push(arrayOneEl);
-        arrayOne.splice(i,1);//averiguar como senalar ese elemento en concreto
-        arrayTwo.splice(j,1);//averiguar como senalar ese elemento en concreto
+        arrayOne.splice(i,1);
+        arrayTwo.splice(j,1);
         i--;
         j--;
-        console.log('arrayOfCommons is same:', arrayOfCommons);
         break;
       } else {
-        console.log('arrayOfCommons if different:', arrayOfCommons);
         continue;
       }
     }
@@ -72,11 +64,6 @@ export function lcm(firstNumber, secondNumber) {
   } else {
     arrayFinal = arrayOfCommons.concat(arrayTwo);
   }
-
-  console.log('arrayOfCommons is:', arrayOfCommons);
-  console.log('arrayOne is:', arrayOne);
-  console.log('arrayTwo is:', arrayTwo);
-  console.log('arrayFinal is:', arrayFinal);
 
   for (let i = 0; i < arrayFinal.length; i++) {
     lcmResult = lcmResult * arrayFinal[i];
