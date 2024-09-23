@@ -34,8 +34,7 @@ export function integerFactorization(n) {
 //De aqui para arriba es igual que al GCD, pero en adelante cambia;
 
 // Comunes al mayor exponente y los no comunes, luego se multiplican todos.
-// Da el sresultado erroneo. Tengo que asegurarme de que se elimina el ultimo arrayOneEl
-//cuando se hace for loop por el.
+// Cambiar contenido del if statement dentro de la funcion lcm
 export function lcm(firstNumber, secondNumber) {
   let arrayOne = integerFactorization(firstNumber);
   console.log('arrayOne is:', arrayOne);
@@ -52,13 +51,15 @@ export function lcm(firstNumber, secondNumber) {
       let arrayTwoEl = arrayTwo[j];
 
       if (arrayOneEl == arrayTwoEl) {
-        
+        arrayOfCommons.push(arrayOneEl);
+        arrayOne.splice(i,1);//averiguar como senalar ese elemento en concreto
+        arrayTwo.splice(j,1);//averiguar como senalar ese elemento en concreto
+        i--;
+        j--;
         console.log('arrayOfCommons is same:', arrayOfCommons);
-
         break;
       } else {
         console.log('arrayOfCommons if different:', arrayOfCommons);
-
         continue;
       }
     }
