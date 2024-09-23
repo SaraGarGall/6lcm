@@ -1,33 +1,29 @@
 export function primeNumber(n) {
-  let result;
-
   for (let i = 2; i < n; i++) {
-    result = n % i != 0 ? true : false;
-    if (result == false) {
-      return result;
+    if (n % i == 0) {
+      return false
     }
   }
-  return result;
+  return true;
 }
 
 export function integerFactorization(n) {
   let arrayOfDivisor = [];
   let quotient = n;
+  //The next if statement is called "Guard clause"
+  //This change has to be added to the exercise number 5 too.
+  if (primeNumber(n)) {
+      arrayOfDivisor.push(n)
+      return arrayOfDivisor;
+    }
 
   for (let i = 2; i <= n; i++) {
-    if (primeNumber(n)) {
-      arrayOfDivisor.push(n);
-    } else {
-      if (quotient % i == 0) {
+    if (quotient % i == 0) {
         quotient = quotient / i;
         arrayOfDivisor.push(i);
         i--;
-      } else {
-        quotient = quotient;
-        continue;
       }
     }
-  }
   return arrayOfDivisor;
 }
 
@@ -51,18 +47,16 @@ export function lcm(firstNumber, secondNumber) {
         i--;
         j--;
         break;
-      } else {
-        continue;
       }
     }
   }
 
-  if (arrayOne.length > 0 && arrayTwo.length > 0) {
-    arrayFinal = arrayOfCommons.concat(arrayOne, arrayTwo);
-  } else if (arrayOne.length > 0) {
-    arrayFinal = arrayOfCommons.concat(arrayOne);
-  } else {
-    arrayFinal = arrayOfCommons.concat(arrayTwo);
+  if (arrayOne.length > 0) {
+    arrayFinal = arrayOfCommons.concat(arrayOne)
+  }
+
+  if (arrayTwo.length > 0) {
+    arrayFinal = arrayOfCommons.concat(arrayTwo)
   }
 
   for (let i = 0; i < arrayFinal.length; i++) {
